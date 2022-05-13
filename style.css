@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Saira+Condensed:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tapestry&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300&display=swap');
+:root{
+    --main-color:#0e173a;
+    --sub-color: #EAA023;
+    --bm-color:#02042c;
+}
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+.btn {
+    background-color: transparent;
+    padding: 10px 30px;
+    border: 2px solid var(--sub-color);
+    border-radius: 50px;
+    color: var(--sub-color);
+    cursor: pointer;
+    transition: all 0.5 ease;
+}
+.btn:hover{
+    background-color: bisque;
+}
+ul {
+    list-style: none;
+}
+button {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.section-pading{
+    padding: 80px 0;
+}
+.justify-content {
+    justify-content: space-between;
+}
+.container {
+    margin: auto;
+    max-width: 1300px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+.top{
+    background-color: var(--main-color);
+}
+.top .logo img {
+    width: 100px;
+}
+.top .logo p{
+    color: var(--sub-color);
+    position: absolute;
+    font-size: 30px;
+    left: 50%;
+    margin-top: -30px;
+    transform: translate(-50%, -50%);
+}
+.top .menu-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+.top .menu-bar.active {
+    position: fixed;
+    top: 30px;
+    right: 0;
+    transform: translateX(-200px);
+    z-index: 1;
+}
+.top .menu-bar span {
+    display: block;
+    height: 2px;
+    width: 40px;
+    background-color: var(--sub-color);
+    position: relative;
+}
+.top .menu-bar.active span {
+    background-color: transparent;
+}
+.top .menu-bar.active span::before {
+    transform: rotate(-135deg);
+}
+.top .menu-bar.active span::after {
+    transform: rotate(135deg);
+}
+.top .menu-bar span::before {
+    height: 100%;
+    width: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    transform:translateY(-10px);
+    background-color: var(--sub-color);
+    transition: all 0.4s ease;  
+}
+.top .menu-bar span::after {
+    height: 100%;
+    width: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    transform:translateY(10px);
+    background-color: var(--sub-color);
+    transition: all 0.4s ease;
+}
+.menu-items {
+    position:fixed;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--main-color);
+    right: 0;
+    top: 0;
+    padding: 100px 50px;
+    transform: translateX(100%);
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+.menu-items.active {
+    transform: translateX(0);
+}
+.menu-items a {
+    color: #ffffff;
+    line-height: 40px;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* phần 1_b: big image */
+.btn-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-image::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/nen11.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: -2;
+    animation: example 7s infinite;
+}
+@keyframes example {
+    0%,100% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+  }
+
+.btn-image::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    z-index: -2;
+}
+.btn-image .btn-image-content{
+    text-align: center;
+    max-width: 500px;
+}
+.btn-image .btn-image-content h2{
+    font-size: 40px;
+    color: #ffffff;
+    font-family: 'Cormorant Infant', serif;
+    line-height: 40px;
+    letter-spacing: 4px;
+} 
+.btn-image .btn-image-content p{
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 10px;
+    font-family: 'Tapestry', cursive;
+    letter-spacing: 2px;
+    line-height: 35px;
+   
+}
+
+/* phần 2: about */
+.about {
+    background-color: var(--main-color);
+
+}
+.section-title{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.section-title h2 {
+    font-size: 35px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.section-title h2::before{
+    content: attr(data-title);
+    display: block;
+    color: var(--sub-color);
+    font-size:30px ;
+    
+}
+.about .about-item h2{
+    color: #ffffff;
+    font-size: 35px;
+    font-family: 'Great Vibes', cursive;
+}
+.about .about-item p{
+    color: #ffffff;
+    font-size: 18px;
+    margin: 15px 0 30px;
+    
+}
+.about .about-item img{
+    width: 100%;
+    border-radius: 10px;
+    animation: example1 10s infinite;
+}
+@keyframes example1 {
+    0%,100% {transform:rotateY(0deg);}
+    50% {transform: rotateY(360deg);}
+  }
+
+.about-item{
+    width: calc(100%/2);
+    padding: 15px;
+}
+
+/* phần 3:Nội dung ( Menu ) */
+.menu{
+    background-color: var(--bm-color);
+    
+}
+.menu-title{
+    width: 100%;
+    text-align: center;
+}
+.menu-title .menu-button{
+    background-color: transparent;
+    margin: 15px 12px;
+    border: none;
+    font-size: 25px;
+    color: var(--sub-color);
+    cursor: pointer;
+}
+.menu-title .menu-button:hover{
+    color: #ffffff;
+}
+.food-items {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
+    position: relative;
+}
+.food-items::before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+    border: 0.1px dashed var(--sub-color);
+    width: 95%;
+}
+.food-item {
+    display: flex;
+    align-items: center;
+}
+.food-item img{
+    width: 150px;
+    margin-right: 12px ;
+}
+.food-item p{
+    color: #ffffff;
+    font-size: 20px;
+    margin: auto;
+    width: 40%;
+    padding: 10px;
+}
+.food-price p{
+    color: #ffffff;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+}
+.food-item p:hover{
+    color:var(--sub-color);
+}
+/* phan 4*/
+
+.gioi-thieu {
+    background-color: var(--main-color);
+}
+.gioi-thieu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.gioi-thieu-item {
+    width: calc(100%/3 - 30px);
+    margin: 0 15px;
+    border: 2px solid var(--bm-color);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0,0,0,15px rgba(0, 0, 0, 0.7) ;
+}
+.gioi-thieu-item:hover img {
+    border: 4px solid var(--sub-color);
+}
+.gioi-thieu-item span {
+    color: #ffffff;
+}
+.gioi-thieu-item h2 {
+    color: #ffffff;
+    font-size: 20px;
+    margin: 20px 0;
+}
+.gioi-thieu-item p {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.gioi-thieu-item img{
+    width: 200px;
+    border-radius: 50%;
+    border: 4px solid #000000;
+    transition: all 1s ease;
+}
+.gioi-thieu-item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.gioi-thieu-item-star i {
+    color: var(--sub-color);
+}
+/* phàn 5: ket */
+.footer {
+    background-image: url(./img/nen2.jpg);
+    padding-top: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.footer-item{
+    text-align: center;
+    width: calc(100%/3);
+}
+.footer h2 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+.footer p {
+    color: #ffffff;
+    margin: 12px 0;
+}
